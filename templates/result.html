@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Result</title>
+</head>
+<body>
+    <!-- <p style="text-align: right;">AI Summarizer | Hello {{ username }}</p> -->
+    <p style="text-align: right;" >Hello {{ username }}<a href="{{url_for('logout')}}" style="border: None; " >logout</a> </p>
+    <h1>AI Summary</h1>
+    <h2>Original Text:</h2>
+    <p>{{ submission.original_text }}</p>
+
+    <h2>Operation:</h2>
+    <p>{{ submission.actionn }}</p>
+
+    <h2>Resulting Text:</h2>
+    <p>{{ submission.reversed_text }}</p>
+
+   <!-- <p>Unique URL: <a href="{{ url_for('result', unique_id=submission.unique_id) }}">{{ url_for('result', unique_id=submission.unique_id) }}</a></p>-->
+   <br><br>
+   <a href="/fullSubmission">submit new text</a>
+   <br>
+    <a href="/dashboard" style="border: None;">go back to dashboard</a>
+    
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Dashboard</title>
+</head>
+
+<body>
+    <p style="text-align: right;" >Hello {{ username }}<a href="{{url_for('logout')}}" style="border: None; " >logout</a> </p>
+
+    <h1>AI Summarizer Dashboard</h1>
+    
+    <a href="/fullSubmission">submit new text</a>
+
+    <h2>Your Past Submissions:</h2>
+    <table align="center">
+        <thead>
+            <tr>
+                <th>Submission</th><th>Operation</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for submission in current_user.submissions %}
+                <tr>
+                    <td><a href="{{ url_for('result', unique_id=submission.unique_id) }}">Submission {{ loop.index }}</a></td>
+                    <td>{{ submission.actionn }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+
+</body>
+
+</html>

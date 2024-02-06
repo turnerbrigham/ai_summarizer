@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Text Reverser</title>
+</head>
+<body>
+    <!--<p style="text-align: right;">AI Summarizer | Hello {{ username }}</p>-->
+    <p style="text-align: right;" >Hello {{ username }}<a href="{{url_for('logout')}}" style="border: None; " >logout</a> </p>
+    <h1>Submit to AI</h1>
+    <form id="textForm" action="/submitBack" method="post">
+        <label for="text">Enter text:</label>
+        <input type="text" id="text" name="text" required>
+        <br><br>
+        <label for="action">Select Action:</label>
+        <select id="action" name="action" required>
+            <option value="Summarize" selected>Summarize</option>
+            <option value="Reverse">Reverse</option>
+        </select>
+        <br><br>
+        <!-- <button type="button" onclick="submitForm()" style="font-size: 24px; background-color: darkblue; color: white; border: 1px solid white; border-radius: 12px; padding: 7px 14px;">Send</button> -->
+        <button type="button" onclick="submitForm()" >Send</button>
+
+    </form>
+
+    <script>
+        function submitForm() {
+            document.getElementById('textForm').submit();
+        }
+    </script>
+    <br><br>
+    <a href="/dashboard" style="border: None;">go back to dashboard</a>
+</body>
+</html>
